@@ -4,7 +4,6 @@ export WORKDIR=`pwd`
 pwd
 
 jupyter-nbextension enable --py widgetsnbextension
-jupyter-nbextension enable nglview --py --sys-prefix
 
 git clone https://github.com/TeamOverkill/md.git
 cd md
