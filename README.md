@@ -12,13 +12,21 @@ To open the Notebooks, install Python3 via [Miniconda](https://conda.io/minicond
 	source activate MD_lab 
 	jupyter-notebook
 ```
+This will open the Jupyter Notebook Folder with the root being the folder you executed the previous commands. In Jupyter open a new terminal and execute the command `./postBuild` installing the molecular dynamics software and enabling Jupyter widgets.
+
+## Layout
+- `Part1_BarrierCrossing.ipynb` Jupyter Notebook to perform 1D molecular dynamics simulations using Python and generate plots.
+- `Part2_Diffusion.ipynb` Jupyter Notebook to perform 3D molecular dynamics simulations using in-house software and generate plots.
+- `include/` Folder containing premade data, figures and images.
+- `MolecularOverkillEngine/` In-house developed molecular dynamics software.
+- `figures/` Folder containing figures generated from the Jupyter Notebooks.
 
 ## Evaluation
+Each student is expected to hand in a written report based on the two labs with the grades passed or not-passed. The written report is to be handed in no later than Fri 24/05 23:59 with the posibility of handing in a first draft no later than Mon 13/05 23:59 to recive comments no later than Fri 17/05.
 
 
-
-If you have any questions, you can contact the lab responsibles on the following electronic addresses
-stefan.hervo_hansen@teokem.lu.se
-vidar.aspelin@teokem.lu.se
-samuel.stenberg@teokem.lu.se
+If you have any questions, you can contact the lab responsibles on the following electronic addresses<br/>
+stefan.hervo_hansen@teokem.lu.se<br/>
+vidar.aspelin@teokem.lu.se<br/>
+samuel.stenberg@teokem.lu.se<br/>
 
