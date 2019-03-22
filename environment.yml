@@ -1,21 +1,21 @@
 name: MD_lab
 channels:
-	- defaults
-	- conda-forge
-	- ambermd
-	- omnia
+ - defaults
+ - conda-forge
+ - ambermd
+ - omnia
 dependencies:
-	- python=3
-	- matplotlib
-	- numpy
-	- scipy
-	- pandas
-	- brewer2mpl
-	- notebook
-	- jupyter
-	- eigen
-	- parmed
-	- clang
-	- cmake
-	- openmp
-	- nglview
+ - python=3
+ - matplotlib
+ - numpy
+ - scipy
+ - pandas
+ - brewer2mpl
+ - notebook
+ - jupyter
+ - eigen
+ - parmed
+ - clang
+ - cmake
+ - openmp
+ - nglview
