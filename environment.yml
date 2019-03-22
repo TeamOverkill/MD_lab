@@ -18,4 +18,3 @@ dependencies:
  - clang
  - cmake
  - openmp
- - nglview

@@ -8,7 +8,7 @@ To open the Notebooks in Binder, simply click the Binder shield/URL in the top o
 ### 2. Local computer
 To open the Notebooks, install Python3 via [Miniconda](https://conda.io/miniconda.html) or [Anaconda](https://www.anaconda.com/distribution/), and make sure all required packages are loaded using the following terminal commands
 ```bash
-	conda env create -f enviroment.yml
+	conda env create -f environment.yml
 	source activate MD_lab 
 	jupyter-notebook
 ```
