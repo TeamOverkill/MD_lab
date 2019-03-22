@@ -5,7 +5,7 @@ pwd
 
 jupyter-nbextension enable --py widgetsnbextension
 
-pip install nglview
+#pip install nglview
 jupyter-nbextension enable nglview --py --sys-prefix
 
 git clone https://github.com/TeamOverkill/md.git
