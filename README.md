@@ -3,9 +3,9 @@ This repository contains two laboratory exercises in relationship to the topic o
 
 ## Usage
 To open the Notebooks, we consider two options. 1. The usage of Binder (recommended). 2. Running the Notebook on your local computer.
-### Binder
+### 1. Binder
 To open the Notebooks in Binder, simply click the Binder shield/URL in the top of the document o by clicking [here](http://dx.doi.org/10.1021/acsaem.8b00500).
-### Local computer
+### 2. Local computer
 To open the Notebooks, install Python3 via [Miniconda](https://conda.io/miniconda.html) or [Anaconda](https://www.anaconda.com/distribution/), and make sure all required packages are loaded using the following terminal commands
 ```bash
 	conda env create -f enviroment.yml
