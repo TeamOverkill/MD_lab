@@ -6,7 +6,6 @@ channels:
 	- omnia
 dependencies:
 	- python=3
-	- nglview
 	- matplotlib
 	- numpy
 	- scipy
