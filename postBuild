@@ -8,6 +8,7 @@ jupyter-nbextension enable --py widgetsnbextension
 mkdir data
 
 git clone https://github.com/TeamOverkill/md.git
+git checkout experimental
 cd md
 
 cat << EOF >> Compile.sh

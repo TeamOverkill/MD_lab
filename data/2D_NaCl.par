@@ -1,0 +1,44 @@
+# Parameters
+# No comments are allowed inside each section....
+
+############
+# TOPOLOGY #
+############
+BONDS
+
+
+ANGLES
+
+
+MASS
+Na 16.0
+Cl 16.0
+
+##########
+# BONDED #
+##########
+#Type        strength        Equilibrium length
+HARMONIC
+
+
+ANGULAR_HARMONIC
+
+
+##############
+# NON-BONDED #
+##############
+#             sigma              epsilon
+LJ
+Na             0.252             0.6
+Cl             0.385             0.6
+
+CHARGE
+Na  1.0
+Cl -1.0
+
+RADIUS
+Na 1.0
+Cl 1.0
+
+
+# END OF FILE

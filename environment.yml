@@ -8,6 +8,7 @@ dependencies:
  - python=3
  - matplotlib
  - numpy
+ - mdtraj
  - scipy
  - pandas
  - brewer2mpl
