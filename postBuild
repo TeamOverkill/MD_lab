@@ -5,6 +5,8 @@ pwd
 
 jupyter-nbextension enable --py widgetsnbextension
 
+mkdir data
+
 git clone https://github.com/TeamOverkill/md.git
 cd md
 
