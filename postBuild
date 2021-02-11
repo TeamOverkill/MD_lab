@@ -9,6 +9,7 @@ jupyter-nbextension enable nglview --py --sys-prefix
 git clone https://github.com/TeamOverkill/md.git
 cd md
 git checkout experimental
+cd src
 mv Atoms.h atoms.h
 
 cat << EOF >> Compile.sh
