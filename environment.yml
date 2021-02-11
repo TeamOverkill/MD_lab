@@ -16,7 +16,6 @@ dependencies:
  - jupyter
  - eigen
  - parmed
- - eigen
  - openmp
  - gfortran_linux-64
  - gcc_linux-64
