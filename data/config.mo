@@ -1,0 +1,9 @@
+#Simulation Setup:
+iter 170000
+temperature 300
+nof 1000
+outfreq 100
+timestep -0.001
+dof 3
+out output.gro
+simple 1
