@@ -12,6 +12,7 @@ class Simulator:
         self.Data_Ekin = _np.empty(shape=(Nstep,Nparticles))
         self.Data_Etot = _np.empty(shape=(Nstep,Nparticles))
         self.Data_Temp = _np.empty(shape=Nstep)
+        self.Data_ConfTemp = _np.empty(shape=Nstep)
 
         # Simulation variables
         self.Position = _np.zeros(Nparticles)
@@ -46,7 +47,7 @@ class Simulator:
         self.Velocity += 0.5*self.Tstep*self.Force/self.m       # Half step (B)
         self.Position += 0.5*self.Tstep*self.Velocity           # Half step (A)                                         
         c = _np.exp(-self.Mu*self.Tstep)                        # Weak solve of Ornstein-Uhlenbeck process (O)
-        self.Velocity = (c * self.Velocity) + (_np.sqrt((1-c*c)*self.kB*self.Temperature)*_np.sqrt(self.m)*_np.random.normal(0,1,1))/self.m
+        self.Velocity = (c * self.Velocity) + (_np.sqrt((1-c*c)*self.kB*self.Temperature)*_np.sqrt(self.m)*_np.random.normal(0,1,self.Nparticles))/self.m
         self.Position += 0.5*self.Tstep*self.Velocity           # Half step (A)
         vecPotential = _np.vectorize(Potential, cache=False)
         self.U, self.Force = vecPotential(self.Position)        # [kJ/mol], [kJ/(nm*mol)]=[Dalton*nm/ps**2]
@@ -59,20 +60,20 @@ class Simulator:
         self.U, self.Force = vecPotential(self.Position)        # [kJ/mol], [kJ/(nm*mol)]=[Dalton*nm/ps**2]
         self.Velocity += 0.5*self.Tstep*self.Force/self.m       # Half step (B)                                        
         c = _np.exp(-self.Mu*self.Tstep)                        # Weak solve of Ornstein-Uhlenbeck process (O)
-        self.Velocity = (c * self.Velocity) + (_np.sqrt((1-c*c)*self.kB*self.Temperature)*_np.sqrt(self.m)*_np.random.normal(0,1,1))/self.m
+        self.Velocity = (c * self.Velocity) + (_np.sqrt((1-c*c)*self.kB*self.Temperature)*_np.sqrt(self.m)*_np.random.normal(0,1,self.Nparticles))/self.m
         self.Velocity += 0.5*self.Tstep*self.Force/self.m       # Half step (B)
         self.Position += 0.5*self.Tstep*self.Velocity           # Half step (A)
 
     def Langevin_OBABO(self, Potential):
         '''Bussi-Parrinello Langevin method (NVT).'''
         c = _np.exp(-self.Mu*self.Tstep)                        # Weak solve of Ornstein-Uhlenbeck process, half step (O)
-        self.Velocity = (c * self.Velocity) + (_np.sqrt((1-c*c)*self.kB*self.Temperature)*_np.sqrt(self.m)*_np.random.normal(0,1,1))/self.m
+        self.Velocity = (c * self.Velocity) + (_np.sqrt((1-c*c)*self.kB*self.Temperature)*_np.sqrt(self.m)*_np.random.normal(0,1,self.Nparticles))/self.m
         self.Velocity += 0.5*self.Tstep*self.Force/self.m       # Half step (B)
         self.Position += self.Tstep*self.Velocity               # Full step (A)
         vecPotential = _np.vectorize(Potential, cache=False)
         self.U, self.Force = vecPotential(self.Position)        # [kJ/mol], [kJ/(nm*mol)]=[Dalton*nm/ps**2]
         self.Velocity += 0.5*self.Tstep*self.Force/self.m       # Half step (B)
-        self.Velocity = (c * self.Velocity) + (_np.sqrt((1-c*c)*self.kB*self.Temperature)*_np.sqrt(self.m)*_np.random.normal(0,1,1))/self.m # Half step (O)
+        self.Velocity = (c * self.Velocity) + (_np.sqrt((1-c*c)*self.kB*self.Temperature)*_np.sqrt(self.m)*_np.random.normal(0,1,self.Nparticles))/self.m # Half step (O)
         
     def Thermostat_And(self):
         '''Andersen thermostat (NVT).'''
@@ -114,4 +115,5 @@ class Simulator:
         self.Data_Ekin[self.it] = 0.5*self.m*self.Velocity**2                # [kJ/mol]
         self.Data_Etot[self.it] = self.U+0.5*self.m*self.Velocity**2              # [kJ/mol]
         self.Data_Temp[self.it] = self.m/self.kB*_np.mean(self.Velocity**2)        # [K]
+        self.Data_ConfTemp[self.it] = 5/self.kB*_np.mean(self.Position**2)
         self.it += 1
