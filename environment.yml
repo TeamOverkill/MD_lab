@@ -9,7 +9,6 @@ dependencies:
  - matplotlib
  - numpy
  - mdtraj
- - gfortran_linux-64
  - nglview
  - scipy
  - pandas
